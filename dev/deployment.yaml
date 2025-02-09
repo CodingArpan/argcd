@@ -1,22 +1,22 @@
-apiVersion: apps/v1 # Kubernetes API version for Deployment objects
-kind: Deployment # Type of Kubernetes resource (Deployment)
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: nginx-deployment # Name of the Deployment
-  namespace: argocd # Namespace where the Deployment will be created
-  labels: # Labels for the Deployment
-    app: argocdapp # Label key-value pair for identifying the Deployment
+  name: nginx-deployment
+  namespace: argocd
+  labels:
+    app: argocdapp
 spec:
-  replicas: 3 # Number of Pod replicas to create (3 in this case)
-  selector: # Defines how the Deployment finds Pods to manage
-    matchLabels: # Labels used to match Pods
-      app: nginx # Pods with this label will be managed by this Deployment
-  template: # Template for creating Pods
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
     metadata:
-      labels: # Labels assigned to the Pods
-        app: nginx # Pods will have this label
-    spec: # Specification for the Pod's containers
-      containers: # List of containers in the Pod
-        - name: nginx # Name of the container
-          image: nginx:latest # Docker image to use for the container
-          ports: # List of ports to expose from the container
-            - containerPort: 80 # Nginx listens on port 80
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80

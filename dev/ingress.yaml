@@ -7,8 +7,8 @@ metadata:
     app: argocdapp
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"  
-    nginx.ingress.kubernetes.io/use-regex: "true"  # Enable regex in path matching
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
     - host: nextapp.arpan
