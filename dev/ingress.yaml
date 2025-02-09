@@ -6,16 +6,15 @@ metadata:
   labels:
     app: argocdapp
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
     - host: nextapp.arpan
       http:
         paths:
-          - pathType: Prefix
-            path: /hello
+          - path: /hello(/|$)(.*)  # Path to match (supports regex)
+            pathType: Prefix
             backend:
               service:
                 name: argocd-service
