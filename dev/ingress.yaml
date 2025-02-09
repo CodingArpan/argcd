@@ -14,8 +14,8 @@ spec:
     - host: nextapp.arpan
       http:
         paths:
-          - path: /hello
-            pathType: Prefix
+          - pathType: Prefix
+            path: /hello
             backend:
               service:
                 name: argocd-service
