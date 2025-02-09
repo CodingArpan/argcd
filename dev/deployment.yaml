@@ -9,7 +9,7 @@ spec:
   replicas: 3 # Number of Pod replicas to create (3 in this case)
   selector: # Defines how the Deployment finds Pods to manage
     matchLabels: # Labels used to match Pods
-      app: argocdapp # Pods with this label will be managed by this Deployment
+      app: nginx # Pods with this label will be managed by this Deployment
   template: # Template for creating Pods
     metadata:
       labels: # Labels assigned to the Pods
@@ -18,5 +18,12 @@ spec:
       containers: # List of containers in the Pod
         - name: nginx # Name of the container
           image: nginx:1.14.2 # Docker image to use for the container
+          resources: # Resource limits for the container
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
           ports: # List of ports to expose from the container
             - containerPort: 80 # Nginx listens on port 80
