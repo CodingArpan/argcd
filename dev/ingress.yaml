@@ -13,7 +13,7 @@ spec:
     - host: nextapp.arpan
       http:
         paths:
-          - path: /hello(/|$)(.*)  # Path to match (supports regex)
+          - path: /hello/*  # Path to match (supports regex)
             pathType: Prefix
             backend:
               service:
