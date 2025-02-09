@@ -17,7 +17,7 @@ spec:
     spec: # Specification for the Pod's containers
       containers: # List of containers in the Pod
         - name: nginx # Name of the container
-          image: nginx:stable-alpine-perl # Docker image to use for the container
+          image: nginx:latest # Docker image to use for the container
           resources: # Resource limits for the container
             limits:
               memory: "512Mi"
